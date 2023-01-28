@@ -1,0 +1,18 @@
+- hosts: server
+  remote_user: adminuser
+  tasks:
+    - name: Echo a hello message
+      command: echo hello
+      
+    - name: Installig Java 
+      ansible.builtin.script: ~/Documents/ansible/java.sh
+
+    - name: Installig Jenkins 
+      ansible.builtin.script: ~/Documents/ansible/jenkins.sh
+
+    - name: Init Jenkins
+      command: sudo systemctl start jenkins
+
+    - name: Show Status Jenkins
+      command: sudo systemctl status jenkins
+            
